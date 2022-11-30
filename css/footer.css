@@ -1,0 +1,26 @@
+
+
+
+footer p {
+    color: var(--textColor);
+    font-size: 0.8rem;
+
+}
+
+
+footer a {
+    color: var(--textColor);
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 500;
+
+}
+
+
+footer a:hover {
+    color: rgb(119, 119, 119);
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: 500;
+
+}

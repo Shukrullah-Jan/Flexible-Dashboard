@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flexible Dashboard - Pierce</title>
+    <!-- icons -->
+    <link rel="icon" href="files/icons/website-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/themes/darkTheme.css" id="switcherId">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Scripts -->
+    <script src="node_modules/jquery/dist/jquery.min.js" defer></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="javascript/offcanvas.js" defer></script>
+    <script src="javascript/header.js" defer></script>
+    <script src="javascript/mainContainer.js" defer></script>
+    <script src="javascript/main.js" defer></script>
+
+
+    <!-- charts -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <script type="text/javascript" src="javascript/charts/chart.js" defer></script>
+    <script type="text/javascript" src="javascript/charts/revenueChart.js" defer></script>
+    <script type="text/javascript" src="javascript/charts/revenueChartSmall.js" defer></script>
+    <script type="text/javascript" src="javascript/charts/profileReportChart.js" defer></script>
+    <script type="text/javascript" src="javascript/charts/orderChart.js" defer></script>
+    <script type="text/javascript" src="javascript/charts/expensesChart.js" defer></script>
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid min-vh-100 p-0">
+
+        <div class="offcanvas offcanvas-start show " tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvaslabel" data-bs-scroll="true" data-bs-backdrop="false">
+
+            <div class="offcanvas-header position-relative pb-0 mb-3">
+                <img src="files/icons/website-icon.png" width="40px" height="40px" alt="Pierce Logo" class="ms-1">
+                <h5 class="offcanvas-title" id="offcanvaslabel">pierce</h5>
+                <button type="button" class="close-canvas-button">
+                    <i class="bi bi-x-lg pe-2"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas-body position-relative pt-0">
+
+                <!-- accordions -->
+                <div class="accordion" id="dashboardAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="Dashboard">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseDashboard" aria-expanded="true"
+                                aria-controls="collapseDashboard">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-house" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Dashboard</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseDashboard" class="accordion-collapse collapse" aria-labelledby="Dashboard"
+                            data-bs-parent="#dashboardAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Analytics</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Chrome</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Ecommerce</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="layoutAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseLayout" aria-expanded="true" aria-controls="collapseLayout">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-box-seam" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Layouts</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseLayout" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#layoutAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Collapse menu</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Content navbar</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Content nav + Sidebar</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Horizontal</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Without Menu</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Without Navbar</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Fluid</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Container</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Blank</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-line my-3 d-flex justify-content-start align-items-center">
+                    <div class="line"></div>
+                    <small class="text-muted ms-3 pt-0">APPS & PAGES</small>
+                </div>
+
+                <div class="div-button rounded-2">
+
+                    <button class="accordion-button p-1 ps-2 overflow-hidden rounded-2" type="button">
+                        <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                            <i class="bi bi-calendar" style="font-size: 22px;"></i>
+                            <h6 class="ms-3 pt-2">Calendar</h6>
+                        </div>
+                    </button>
+
+                </div>
+
+                <div class="accordion" id="invoiceAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseInvoice" aria-expanded="true" aria-controls="collapseInvoice">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-receipt" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Invoice</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseInvoice" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#invoiceAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">List</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Preview</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Edit</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Add</h5>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="usersAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-person" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Users</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#usersAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">List</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">View</h5>
+
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="rolesAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseRoles" aria-expanded="true" aria-controls="collapseRoles">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-shield" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Roles & Permissions</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseRoles" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#rolesAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Roles</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Permissions</h5>
+
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="pagesAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-journals" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Pages</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapsePages" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#pagesAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">User profile</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Account settings</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">FAQ</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Help Center</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Pricing</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Misc</h5>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="authAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseAuth" aria-expanded="true" aria-controls="collapseAuth">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="fa fa-lock" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Authentications</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseAuth" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#authAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Login</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Register</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Verify email</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Reset password</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Forgot password</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Two step</h5>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="wizardAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseWizard" aria-expanded="true" aria-controls="collapseWizard">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-card-checklist" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Wizard Examples</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseWizard" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#wizardAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Checkout</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Property listing</h5>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="div-button rounded-2">
+
+                    <button class="accordion-button p-1 ps-2 overflow-hidden rounded-2" type="button">
+                        <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                            <i class="bi bi-upload" style="font-size: 22px;"></i>
+                            <h6 class="ms-3 pt-2">Modal Examples</h6>
+                        </div>
+                    </button>
+
+                </div>
+
+                <div class="div-line my-3 d-flex justify-content-start align-items-center">
+                    <div class="line"></div>
+                    <small class="text-muted ms-3 pt-0">Components</small>
+                </div>
+
+                <div class="accordion" id="cardAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseCard" aria-expanded="true" aria-controls="collapseCard">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="fa fa-note-sticky" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Cards</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseCard" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#cardAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Basic</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Advance</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Statistics</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Analytics</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Gamification</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Actions</h5>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="interfaceAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseInterface" aria-expanded="true"
+                                aria-controls="collapseInterface">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="fa fa-pager" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">User Interface</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseInterface" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#interfaceAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Accordion</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Alert</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Badges</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Buttons</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Carousel</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Dropdowns</h5>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion" id="extendedAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExtended" aria-expanded="true"
+                                aria-controls="collapseExtended">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-box2" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Extended UI</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseExtended" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#extendedAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Avatar</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">BlockUI</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Drag & drop</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Media player</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Perfect scrollbar</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Star rating</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Text divider</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Timeline</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Tree view</h5>
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion" id="iconsAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseIcons" aria-expanded="true" aria-controls="collapseIcons">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-emoji-heart-eyes" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Icons</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseIcons" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#iconsAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">BoxIcons</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Font awesome</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="div-line my-3 d-flex justify-content-start align-items-center">
+                    <div class="line"></div>
+                    <small class="text-muted ms-3 pt-0">Charts and Maps</small>
+                </div>
+
+                <div class="accordion" id="chartAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="layouts">
+                            <button class="accordion-button p-1 ps-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseChart" aria-expanded="true" aria-controls="collapseChart">
+                                <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                                    <i class="bi bi-bar-chart" style="font-size: 22px;"></i>
+                                    <h6 class="ms-3 pt-2">Charts</h6>
+                                </div>
+                            </button>
+                        </h2>
+                        <div id="collapseChart" class="accordion-collapse collapse" aria-labelledby="layouts"
+                            data-bs-parent="#chartAccordion">
+                            <div class="accordion-body">
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot text-secondary" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">Apex Charts</h5>
+                                </button>
+                                <button class="d-flex justify-content-start align-items-center rounded-2 p-0">
+                                    <i class="bi bi-dot" style="font-size: 2rem;"></i>
+                                    <h5 class="pt-1">ChartJS</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-button rounded-2">
+
+                    <button class="accordion-button p-1 ps-2 overflow-hidden rounded-2" type="button">
+                        <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                            <i class="bi bi-map" style="font-size: 22px;"></i>
+                            <h6 class="ms-3 pt-2">Leaflet Maps</h6>
+                        </div>
+                    </button>
+
+                </div>
+
+                <div class="div-line my-3 d-flex justify-content-start align-items-center">
+                    <div class="line"></div>
+                    <small class="text-muted ms-3 pt-0">Misc</small>
+                </div>
+                <div class="div-button rounded-2">
+
+                    <button class="accordion-button p-1 ps-2 overflow-hidden rounded-2" type="button">
+                        <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                            <i class="bi bi-headset" style="font-size: 22px;"></i>
+                            <h6 class="ms-3 pt-2">Support</h6>
+                        </div>
+                    </button>
+
+                </div>
+                <div class="div-button rounded-2">
+
+                    <button class="accordion-button p-1 ps-2 overflow-hidden rounded-2" type="button">
+                        <div class="d-flex justify-content-start align-items-center ps-1 rounded-2">
+                            <i class="bi bi-card-heading" style="font-size: 22px;"></i>
+                            <h6 class="ms-3 pt-2">Documentation</h6>
+                        </div>
+                    </button>
+
+                </div>
+
+            </div> <!-- End of accordions-->
+        </div>
+        <!--end of offcanvas-->
+
+
+        <!-- Header -->
+        <div class="main-container">
+            <button class="buy-now">Buy Now</button>
+            <div class="blurry-div"></div>
+            <header class="navbar d-flex
+                justify-content-end align-items-center position-sticky rounded px-3 ">
+
+                <form class="search me-auto ms-2 d-inline-flex align-items-center" role="search">
+                    <i class="bi bi-list me-2"></i>
+                    <i class="bi bi-search me-1"></i>
+                    <input class="search form-control" type="search" placeholder="Search (Ctrl+/)">
+                    <i class="bi bi-x"></i>
+                </form>
+
+                <nav class="profile justify-content-center align-items-center">
+                    <button class="rounded-circle d-inline-flex 
+                    justify-content-center align-items-center"><i class="bi bi-brightness-high"></i></button>
+
+                    <button class=" rounded-circle d-inline-flex 
+                    justify-content-center align-items-center"><i class="bi bi-box"></i></button>
+                    <button class=" position-relative d-inline-flex 
+                    justify-content-center align-items-center  rounded-circle"><i class="bi bi-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            5
+                        </span>
+                    </button>
+                    <button class="btn position-relative d-inline-flex 
+                    justify-content-center align-items-center rounded-circle"> <img
+                            src="files/images/me_brush_effect.png" lazyloading alt="profile">
+                        <span class="position-absolute translate-middle-x p-1 rounded-circle">
+                        </span>
+                    </button>
+                </nav>
+            </header>
+            <!--End of header-->
+
+            <!-- panels -->
+            <div class="shortcuts-panel rounded">
+                <!--shortcuts panel-->
+
+                <div class="container-fluid d-flex 
+                        justify-content-end align-items-center border-bottom">
+                    <h5 class="d-inline me-auto">Shortcuts</h5>
+                    <i class="bi bi-plus-circle" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-title="Add shortcuts"></i>
+                </div>
+                <div class="container-fluid grid">
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-calendar-date"></i>
+                        </button>
+
+                        <h6 class="">Calendar</h6>
+                        <small class="text-muted">Appointments</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-clipboard-data"></i>
+                        </button>
+
+                        <h6 class="">Invoice App</h6>
+                        <small class="text-muted">Manage Accounts</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-person"></i>
+                        </button>
+
+                        <h6 class="">User App</h6>
+                        <small class="text-muted">Manage Users</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-shield-lock"></i>
+                        </button>
+
+                        <h6 class=" px-3 text-center">Roll Management</h6>
+                        <small class="text-muted">Permission</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-pie-chart"></i>
+                        </button>
+
+                        <h6 class=" px-3 text-center">ِDashboard</h6>
+                        <small class="text-muted">User Profile</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-gear"></i>
+                        </button>
+
+                        <h6 class=" px-3 text-center">Settings</h6>
+                        <small class="text-muted">Account Settings</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i class="bi bi-info-circle"></i>
+                        </button>
+
+                        <h6 class=" px-3 text-center">Help Center</h6>
+                        <small class="text-muted">FAQs & Articles</small>
+                    </div>
+                    <div>
+                        <button class="mb-3 d-flex 
+                        justify-content-center align-items-center rounded-circle"> <i
+                                class="bi bi-file-earmark-arrow-up"></i>
+                        </button>
+
+                        <h6 class=" px-3 text-center">Modals</h6>
+                        <small class="text-muted">Useful Popups</small>
+                    </div>
+
+                </div>
+
+            </div> <!-- end of shortcuts panel-->
+
+            <!-- notifications panel-->
+            <div class="container-fluid notifications-panel rounded">
+
+                <div class="row">
+                    <h5 class="">Notifications</h5>
+                    <i class="bi bi-envelope-check col ms-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-title="Mark all as read">
+
+                    </i>
+                </div>
+
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex overflow-hidden justify-content-center align-items-center rounded-circle">
+                            <img src="files/images/me_brush_effect2.png" alt="profile" width="50px">
+                        </button>
+                    </div>
+
+                    <div class="">
+                        <h6>Mehdi, Asghari</h6>
+                        <p class="text-muted">Accepted your connection</p>
+                        <small class="very-small">34min ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class=" mt-2">
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-person"></i>
+                        </button>
+                    </div>
+
+                    <div class="">
+                        <h6>Fareeda, Jasmine</h6>
+                        <p class="text-muted">Send you a friend request</p>
+                        <small class="very-small">1h ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-cart"></i>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h6>Wohoo! You have new order</h6>
+                        <p class="text-muted">ACMIC Inc. made new order $1,110</p>
+                        <small class="very-small">2h ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-check"></i>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h6>Application has been approved ✔</h6>
+                        <p class="text-muted">Your final project accepted</p>
+                        <small class="very-small">1day ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-pie-chart"></i>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h6>Monthly report generated</h6>
+                        <p class="text-muted">July sales report has been generated</p>
+                        <small class="very-small">2day ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-person"></i>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h6>New message from Jerry</h6>
+                        <p class="text-muted">You have a new message from Jerry</p>
+                        <small class="very-small">2day ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="notification-profile d-flex
+                    justify-content-center align-items-center col">
+                        <button class="d-flex justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-info-circle"></i>
+                        </button>
+                    </div>
+
+                    <div>
+                        <h6>CPU running low!!!</h6>
+                        <p class="text-muted">Your CPU usage currently is 89% now</p>
+                        <small class="very-small">2day ago</small>
+                    </div>
+                    <div class="notification-status d-flex justify-content-center align-items-center col">
+                        <span class="mt-2">
+
+                        </span>
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+
+            </div> <!-- end of notifications panel-->
+
+            <!--profile panel-->
+            <div class="container-fluid profile-panel rounded">
+
+                <div class="row d-flex
+                justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <img src="files/images/me_brush_effect2.png" alt="profile" width="40px" height="40px">
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Shukrullah, Askari</h6>
+                        <small class="very-small">Admin</small>
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-person"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">My Profile</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Settings</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center border border-secondary border-top-0
+                border-start-0 border-end-0 border-bottom-1 ">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-wallet"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Billing</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-info"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Help</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-question-circle"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">FAQ</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center border border-secondary border-top-0
+                border-start-0 border-end-0 border-bottom-1 ">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-currency-dollar"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Pricing</h6>
+
+                    </div>
+
+                </div>
+
+                <div class="row d-flex justify-content-center align-items-center">
+
+                    <div class="col d-flex justify-content-center align-items-center">
+
+                        <button
+                            class="d-flex overflow-hidden  justify-content-center align-items-center rounded-circle">
+                            <i class="bi bi-box-arrow-in-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="col ps-0">
+                        <h6 class="mb-0">Log out</h6>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div> <!-- end of profile panel-->
+            <!-- end of panels -->
+
+            <main class="container-fluid grid">
+
+
+                <!-- report section -->
+                <section class="rounded">
+                    <h6 class="mb-3">Congratulations Askari!🎉</h6>
+                    <small class="mb-3 text-muted d-block">You have done <b>73%</b> more sales today. Check you new
+                        badge in
+                        profile.</small>
+                    <button class="rounded-pill px-3 py-2 d-block">View badges</button>
+                </section>
+
+                <!-- order section -->
+                <section class="rounded">
+                    <h5>Order</h5>
+                    <h4>275K</h4>
+                    <canvas id="orderChart" style="max-width:100%;"></canvas>
+
+                </section>
+
+                <!-- Sales section -->
+                <section class="rounded">
+                    <div class="row pt-0">
+
+                        <div class="dropdown row">
+                            <i class="bi bi-wallet col" style="font-size: 30px; color: rgb(2, 83, 206);"></i>
+
+                            <button class="col-2 bg-transparent" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">View more</a></li>
+                                <li><a href="#" class="dropdown-item">Delete</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h6>Sales</h6>
+                        <h4>$5,342</h4>
+                        <i class="bi bi-arrow-up-short text-success"> </i>
+                        <small class="smaller text-success fw-bold">+32.32%</small>
+
+                    </div>
+
+                </section>
+
+                <!-- revenue section -->
+                <section class="rounded row">
+                    <!-- col revenue chart -->
+                    <div class="col border-1 border-end">
+                        <h4>Total Revenue</h4>
+                        <span class="badge p-1  rounded-circle bg-info">
+                        </span>
+                        <small>2021</small>
+                        <span class="badge p-1 ms-3 rounded-circle bg-secondary">
+                        </span>
+                        <small>2022</small>
+                        <div class="mt-3">
+                            <canvas id="revenueChart">
+
+                            </canvas>
+                        </div>
+
+                    </div>
+
+                    <!-- col growth -->
+                    <div class="col">
+                        <div>
+                            <div class="dropdown row mb-2">
+
+                                <button class="col-2 d-inline-block border m-auto px-1 rounded-2 dropdown-toggle"
+                                    type="button" data-bs-toggle="dropdown">
+                                    <small>2020</small>
+                                </button>
+
+                                <ul class="dropdown-menu w-25">
+                                    <li><a class="dropdown-item" type="button">2021</a></li>
+                                    <li><a type="button" class="dropdown-item">2022</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div
+                                class="growth m-auto mb-1 d-flex flex-column justify-content-center align-items-center">
+                                <h4 class="d-block">78%</h4>
+                                <h5>Growth</h5>
+                            </div>
+
+                            <h6 class="text-center">62% company growth</h6>
+                        </div>
+
+                        <div class="row mt-5 ps-2">
+
+                            <div class="col">
+                                <button style="width: 40px; height: 40px;" class="rounded-2">
+                                    <i class="bi bi-currency-dollar text-success" style="font-size: 26px;"> </i>
+                                </button>
+                                <div class="d-inline-block">
+                                    <small class="text-success">2022</small>
+                                    <h6>$34.5k</h6>
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <button style="width: 40px; height: 40px;" class="rounded-2">
+                                    <i class="bi bi-wallet text-success" style="font-size: 26px;"> </i>
+                                </button>
+                                <div class="d-inline-block">
+                                    <small class="text-success">2021</small>
+                                    <h6>$41.5k</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Payments paypal section -->
+                <section class="rounded">
+                    <div class="row pt-0">
+
+                        <div class="dropdown row">
+                            <i class="bi bi-paypal col text-danger" style="font-size: 26px; "></i>
+
+                            <button class="col-2 bg-transparent" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="dropdown-item">View more</a></li>
+                                <li><a href="#" class="dropdown-item">Delete</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h6>Payments</h6>
+                        <h4>$2,042</h4>
+                        <i class="bi bi-arrow-down-short text-danger "> </i>
+                        <small class="smaller text-danger fw-bold">+32.32%</small>
+
+                    </div>
+
+                </section>
+
+                <!-- Revenue small section -->
+                <section class="rounded">
+
+                    <h5>Revenue</h5>
+                    <h4>425k</h4>
+                    <canvas id="revenueChartSmall" style="max-width:100%;"></canvas>
+                </section>
+
+                <!-- Profile report section -->
+                <section class="rounded row m-0">
+
+                    <div class="col-5">
+                        <h5>Profile report</h5>
+                        <button class="btn btn-outline py-0 rounded-pill bg-warning d-block mb-2" type="button"><small
+                                class="text-dark">Year
+                                2022</small></button>
+                        <i class="bi bi-arrow-up-short text-success"> </i>
+                        <small class="smaller text-success fw-bold">+32.32%</small>
+                        <h4>$5,342</h4>
+
+                    </div>
+
+                    <div class="col">
+                        <canvas id="profileReportChart" style="max-width:100%;"></canvas>
+                    </div>
+                </section>
+
+                <!-- Order Statistics section -->
+                <section class="rounded m-0">
+
+                    <div class="row mb-1 pt-0">
+                        <div class="col">
+                            <h4 class="mb-0">Order statistics</h4>
+                            <small class="text-secondary">$41.221k total sales</small>
+                        </div>
+                        <div class="dropdown col-2 ps-4 pt-1">
+
+
+                            <button class="bg-transparent" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item">Select all</a></li>
+                                <li><a href="#" class="dropdown-item">Refresh</a></li>
+                                <li>
+                                    <a class="dropdown-item">Share</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center mb-5">
+                        <div class="me-auto mt-1">
+
+                            <h2 class="display-6 mb-1">7,834</h2>
+                            <h5 class="text-secondary">Total orders</h5>
+                        </div>
+
+                        <div>
+
+                            <div class="position-relative d-flex justify-content-center align-items-center"
+                                style="width:110px; height: 110px;">
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <h4 class="mb-1 text-center">38%</h4>
+                                    <small class="text-muted">Weekly</small>
+                                </div>
+
+                                <canvas id="orderStatisticsChart" style="max-width:100%; max-height: 100%;">
+
+                                </canvas>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- order rows details -->
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-phone text-success" style="font-size: 26px;"> </i>
+                                </button>
+                            </div>
+                            <div class="d-inline-block position-absolute ms-2">
+                                <h6 class="mb-0">Electronics</h6>
+                                <small class="text-muted">Mobile, Earbuds, TV</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <small>82.5k</small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2  mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+
+                                    <i class="bi bi-person-hearts text-success" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+                            <div class="d-inline-block position-absolute ms-2">
+                                <h6 class="mb-0">Fashion</h6>
+                                <small class="text-muted">T-Shirts, Jeans, Shorts</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <small>34.5k</small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2  mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+
+                                    <i class="fa-sharp fa-solid fa-holly-berry text-success"
+                                        style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+                            <div class="d-inline-block position-absolute ms-2">
+                                <h6 class="mb-0">Decor</h6>
+                                <small class="text-muted">Dinning, Fine Art, Stamps</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <small>11.5k</small>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2  mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="fa-solid fa-volleyball text-success" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+                            <div class="d-inline-block position-absolute ms-2">
+                                <h6 class="mb-0">Sports</h6>
+                                <small class="text-muted">Soccer, Tennis, Cricket</small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <small>5.6k</small>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Expenses Section -->
+                <section class="rounded p-4">
+
+                    <div class="row mb-5">
+
+                        <button class="col-3 py-1 px-3 rounded-1" type="button">Income</button>
+                        <div class="col-6 mt-1">
+                            <small class="me-4 fst-italic">Expenses</small>
+                            <small class="fst-italic">Profit</small>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-wallet text-secondary" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+                                <small class="text-muted">Total balance</small>
+                                <div class="">
+                                    <h6 class="d-inline mb-0">$552.2</h6>
+                                    <i class="bi bi-arrow-up-short text-success"> </i>
+                                    <small class="smaller text-success fw-bold">+41.7%</small>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="row mt-5">
+                            <div>
+                                <canvas id="expensesChart" style="max-width:100%; max-height: 100%;">
+
+                                </canvas>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-3">
+
+                                <div class="pe-0 position-relative d-flex  justify-content-center align-items-center">
+                                    <svg class="">
+                                        <circle class="bg" cx="25" cy="25" r="20" />
+                                        <circle class="meter" cx="25" cy="25" r="20" />
+
+                                    </svg>
+                                    <span class="smaller position-absolute top-50 start-50 translate-middle">
+                                        $230
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="col ps-0">
+                                <small class="text-muted">Expenses This Week</small>
+                                <div class="">
+                                    <small class="d-inline smaller fw-bold mb-0 text-success">$120 less than last
+                                        week</small>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Transactions Section -->
+                <section class="row m-0 rounded">
+                    <div class="row mb-1 pt-0">
+                        <div class="col">
+                            <h4 class="mb-0">Transactions</h4>
+                        </div>
+
+                        <div class="dropdown col-1 ps-4 pt-1">
+                            <button class="bg-transparent" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item">Last 28 days</a></li>
+                                <li><a href="#" class="dropdown-item">Last Month</a></li>
+                                <li>
+                                    <a class="dropdown-item">Last Year</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- transactions type rows -->
+                    <div class="row mt-2 mb-3 rounded">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-paypal text-danger" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Paypal</small>
+                                <h6 class="mb-0">Send money</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">+183.5</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-wallet text-secondary" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Wallet</small>
+                                <h6 class="mb-0">Mac'D</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">+340.8</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-pie-chart text-success" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Transfer</small>
+                                <h6 class="mb-0">Refund</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">+670.5</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-credit-card-2-front text-secondary" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Credit Card</small>
+                                <h6 class="mb-0">Ordered Food</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">-930.5</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-wallet text-secondary" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Wallet</small>
+                                <h6 class="mb-0">Startbucks</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">+210</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-3">
+                        <div class="col position-relative">
+
+                            <div class="d-inline-block">
+                                <button class="rounded-2" style="width: 40px; height: 40px;">
+                                    <i class="bi bi-credit-card text-secondary" style="font-size: 26px;"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-inline-block position-absolute ms-2">
+
+                                <small class="text-muted">Master Card</small>
+                                <h6 class="mb-0">Orederd Food</h6>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <h6 class="me-2">-90</h6>
+                            <h6 class="text-muted">USD</h6>
+                        </div>
+                    </div>
+
+
+                </section>
+
+                <!-- /* Activity Timeline */ -->
+                <section class="m-0 rounded">
+                    <div class="d-flex justify-content-end align-items-top mb-1 pt-0">
+                        <div class="me-auto">
+                            <h4 class="mb-0">Activity Timeline</h4>
+                        </div>
+
+                        <div class="dropdown d-inline">
+                            <button class="bg-transparent" type="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item">Select all</a></li>
+                                <li><a href="#" class="dropdown-item">Refresh</a></li>
+                                <li>
+                                    <a class="dropdown-item">Share</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- activity boxes -->
+
+                    <div class="position-relative mt-5">
+                        <aside class="">
+
+                        </aside>
+
+                        <!-- activity rows -->
+                        <div class="position-relative">
+
+                            <div class="position-relative d-flex justify-content-end align-items-top mb-4 pb-4">
+                                <div class="circle position-absolute"></div>
+                                <div class="me-auto">
+                                    <h5 class="mb-0 fw-bold">12 invoices have been paid</h5>
+                                    <small class="text-muted">Invoices have been paid to the company</small>
+                                    <a type="button" class="d-block text-decoration-none">
+                                        <i class="bi bi-filetype-pdf text-secondary" style="font-size:1.3rem;"></i>
+                                        <small>Invoices.pdf</small>
+                                    </a>
+                                </div>
+
+                                <div class="d-inline">
+                                    <small class="smaller">12 min ago</small>
+                                </div>
+                            </div>
+
+                            <div class="position-relative d-flex justify-content-end align-items-top mb-4 pb-4">
+                                <div class="circle position-absolute"></div>
+                                <div class="me-auto col-10">
+                                    <h5 class="mb-0 fw-bold">Client Meeting</h5>
+                                    <small class="text-muted">Project meeting with John @11:20AM</small>
+                                    <!-- client Profile -->
+                                    <div class="d-flex justify-content-start align-items-top mt-2">
+
+                                        <div class="d-inline-block   rounded-circle overflow-hidden mt-2">
+                                            <img src="files/images/man8.jpg" alt="" style="width: 40px; height: 40px;">
+                                        </div>
+
+                                        <div class="d-inline-block ms-3 pt-2">
+
+                                            <h5 class="mt-0 mb-0">Tommy Shelby</h5>
+                                            <h6 class="text-muted mb-0">CEO of theme selection</h6>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="d-inline">
+                                    <small class="smaller">45 min ago</small>
+                                </div>
+                            </div>
+
+                            <div class="position-relative d-flex justify-content-end align-items-top mb-4 pb-4">
+                                <div class="circle position-absolute"></div>
+                                <div class="check-last position-absolute ">
+                                    <i class="bi bi-check-circle text-secondary" style="font-size: 1.3rem;"></i>
+                                </div>
+                                <div class="me-auto">
+                                    <h5 class="mb-0 fw-bold">Create a new project for client</h5>
+                                    <small class="text-muted">5 team members in a project</small>
+                                    <!-- member profiles -->
+                                    <div
+                                        class="profiles d-flex overflow-visible position-relative justify-content-start align-items-top mt-2">
+
+                                        <div class="d-inline-block position-absolute border border-2 border-secondary  rounded-circle overflow-hidden mt-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="John">
+                                            <img src="files/images/man1.jpg" alt="" style="width: 34px; height: 34px;">
+                                        </div>
+                                        <div class="d-inline-block position-absolute border border-2 border-secondary  rounded-circle overflow-hidden mt-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Jabir">
+                                            <img src="files/images/man3.jpg" alt="" style="width: 34px; height: 34px;">
+                                        </div>
+                                        <div class="d-inline-block position-absolute border border-2 border-secondary  rounded-circle overflow-hidden mt-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Kamran">
+                                            <img src="files/images/man4.jpg" alt="" style="width: 34px; height: 34px;">
+                                        </div>
+                                        <div class="d-inline-block position-absolute border border-2 border-secondary  rounded-circle overflow-hidden mt-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mehdi">
+                                            <img src="files/images/man5.jpg" alt="" style="width: 34px; height: 34px;">
+                                        </div>
+                                        <div class="d-inline-block position-absolute border border-2 border-secondary  rounded-circle overflow-hidden mt-2"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Zubbair">
+                                            <img src="files/images/man7.jpg" alt="" style="width: 34px; height: 34px;">
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="d-inline">
+                                    <small class="smaller">2 Days ago</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+                <!-- /* User Analytics */ -->
+                <section class="m-0 rounded">
+                    <div class="d-flex justify-content-start align-items-top mb-4 pt-0">
+
+                        <button class="me-1 py-2 px-2 rounded-1 active-btn" type="button">Browser</button>
+                        <button class="me-1 py-2 px-3 rounded-1" type="button">Operating System</button>
+                        <button class="me-1 py-2 px-3 rounded-1" type="button">Country</button>
+                    </div>
+
+                    <div class="position-relative">
+
+                        <!-- browser -->
+                        <div class="browsers">
+                            <div class="header-row row ">
+                                <h6 class="col-1">NO</h6>
+                                <h6 class="col-4">BROWSER</h6>
+                                <h6 class="col-2">VISITS</h6>
+                                <h6 class="col">DATA IN PERCENTAGE</h6>
+                            </div>
+
+                            <!-- rows -->
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">1</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-browser-chrome text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Chrome</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">8.92k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar" role="progressbar" style="width: 84.75%;"
+                                            aria-valuenow="84.75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">84.75%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">2</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-browser-safari text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Safari</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">7.29k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar safari" role="progressbar" style="width: 72.43%;"
+                                            aria-valuenow="72.43" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">72.43%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">3</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-browser-firefox text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Firefox</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">6.11k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar firefox" role="progressbar" style="width: 67.37%;"
+                                            aria-valuenow="84.75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">67.37%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">4</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-browser-edge text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Edge</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">5.08k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar edge bg-info" role="progressbar" style="width: 60.12%;"
+                                            aria-valuenow="60.12" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">60.12%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">5</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block pt-2">
+
+                                        <i class="fa-brands fa-opera text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Opera</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">3.93k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar edge bg-info" role="progressbar" style="width: 51.94%;"
+                                            aria-valuenow="51.94" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">51.94%</h6>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Operating system -->
+                        <div class="operating-system">
+                            <div class="header-row row ">
+                                <h6 class=" col-1">NO</h6>
+                                <h6 class="col-4">SYSTEM</h6>
+                                <h6 class="col-2">VISITS</h6>
+                                <h6 class="col">DATA IN PERCENTAGE</h6>
+                            </div>
+
+                            <!-- rows -->
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">1</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-windows text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Windows</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">875.92k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar" role="progressbar" style="width: 71.50%;"
+                                            aria-valuenow="71.50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">71.50%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">2</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-apple text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Mac</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">89.68k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar safari" role="progressbar" style="width: 66.67%;"
+                                            aria-valuenow="66.67" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">66.67%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">3</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-ubuntu text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Ubuntu</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">37.68k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar firefox" role="progressbar" style="width: 62.82%;"
+                                            aria-valuenow="62.82" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">62.82%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">4</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block">
+                                        <i class="bi bi-browser-chrome text-success" style="font-size: 26px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Chrome</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">35.34k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar edge bg-info" role="progressbar" style="width: 56.25%;"
+                                            aria-valuenow="56.25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">56.25%</h6>
+
+                            </div>
+                            <div class="row  mb-1">
+                                <h6 class="col-1 pt-3">5</h6>
+                                <div class="col-4">
+                                    <div class="d-inline-block pt-2">
+                                        <i class="fa-brands fa-linux text-success" style="font-size: 26px;"></i>
+
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Linux</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">22.15k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar edge bg-info" role="progressbar" style="width: 37.77%;"
+                                            aria-valuenow="37.77" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">37.77%</h6>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- Country -->
+                        <div class="country">
+                            <div class="header-row row">
+                                <h6 class=" col-1">NO</h6>
+                                <h6 class="col-4">COUNTRY</h6>
+                                <h6 class="col-2">VISITS</h6>
+                                <h6 class="col">DATA IN PERCENTAGE</h6>
+                            </div>
+
+                            <!-- rows -->
+                            <div class="row">
+                                <h6 class="col-1 pt-3">1</h6>
+                                <div class="col-4 pt-2">
+                                    <div class="d-inline-block">
+
+                                        <i class="fa-solid fa-flag-usa text-success" style="font-size: 25px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">USA</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">87.92k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar" role="progressbar" style="width: 87.92%;"
+                                            aria-valuenow="87.92" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">89.33%</h6>
+
+                            </div>
+                            <div class="row">
+                                <h6 class="col-1 pt-3">2</h6>
+                                <div class="col-4 pt-2">
+                                    <div class="d-inline-block">
+
+                                        <i class="fa-brands fa-canadian-maple-leaf text-success"
+                                            style="font-size: 25px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">Canada</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">78.22k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar" role="progressbar" style="width: 78.22%;"
+                                            aria-valuenow="78.22" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">78.22%</h6>
+
+                            </div>
+                            <div class="row">
+                                <h6 class="col-1 pt-3">3</h6>
+                                <div class="col-4 pt-2">
+                                    <div class="d-inline-block">
+
+                                        <i class="fa-solid fa-flag text-success" style="font-size: 25px;"></i>
+                                    </div>
+
+                                    <div class="d-inline-block ms-2">
+                                        <h6 class="">India</h6>
+                                    </div>
+
+                                </div>
+                                <h6 class="col-2 pt-3">55.42k</h6>
+
+                                <div class="col">
+
+                                    <div class="progress col" style=" height: 10px">
+                                        <div class="progress-bar" role="progressbar" style="width: 55.42%;"
+                                            aria-valuenow="55.42" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+                                </div>
+                                <h6 class="d-inline-block text-muted col-2 pt-3">59.42%</h6>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="d-flex justify-content-end align-items-start mt-3 p-3">
+                <div class="me-auto">
+                    <p>&copy; 2022, Made by <b>Shukrullah Askari</b></p>
+                </div>
+                <div class="d-flex justify-content-start align-items-start">
+                    <p class=""><a href="placeholder.html">License</a></p>
+                    <p class="ms-4"><a href="#">More Themes</a></p>
+                    <p class="ms-4"><a href="#">Documentation</a></p>
+                    <p class="ms-4"><a href="#">Support</a></p>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,409 @@
+body {
+    background-color: var(--backgroundPrimary);
+}
+
+
+.blurry-div {
+    background-color: var(--backgroundPrimary);
+    width: 100%;
+    height: 0.8rem;
+    position: fixed;
+    box-shadow: 0px 0px 10px var(--backgroundPrimary);
+    opacity: 0.79;
+    filter: blur(0.08rem);
+}
+
+header {
+    background-color: var(--backgroundDark);
+    position: fixed;
+    margin: 0 0.8rem 1.4rem;
+    /* margin-left: 3rem; */
+    max-height: 4rem;
+    top: 0.8rem;
+    z-index: 2;
+    opacity: 0.99;
+}
+
+header form .bi {
+    font-size: 1.1rem;
+    color: var(--colorText);
+}
+
+header form .bi:hover {
+    color: var(--textColor);
+    cursor: pointer;
+}
+
+header form .bi-list {
+    display: none;
+}
+
+/* remove x inside search input */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+header form .search {
+    background: transparent;
+    color: var(--textColor);
+    width: fit-content;
+    border: 0;
+    caret-color: var(--colorText);
+}
+
+header form .search:focus {
+    background: transparent;
+    color: var(--textColor);
+    border: 0;
+    box-shadow: 0 0 0;
+    height: 3.1rem;
+}
+
+.hide-input {
+    display: none;
+}
+
+.show-input {
+    display: inline;
+}
+
+header form .bi-x {
+    display: none;
+    font-size: 2rem;
+    color: var(--textColor);
+}
+
+
+header .profile button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    background-color: var(--btnBackground);
+    transition: var(--transition);
+}
+
+header .profile button:hover {
+
+    background: var(--backgroundPrimary);
+
+}
+
+header .profile {
+
+    display: inline-flex;
+}
+
+header .profile button:last-child {
+
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+
+}
+
+header .profile button:last-child img {
+
+    width: 3rem;
+    height: 3rem;
+
+}
+
+header .profile button:last-child span {
+
+    background-color: rgb(27, 223, 76);
+    border: 2px var(--backgroundDark) solid;
+    bottom: 1px;
+    right: 1px;
+}
+
+/* panels */
+/* Shortcut panel */
+.shortcuts-panel::-webkit-scrollbar,
+.notifications-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.shortcuts-panel::-webkit-scrollbar-track,
+.shortcuts-panel::-webkit-scrollbar-thumb,
+.notifications-panel::-webkit-scrollbar-track,
+.notifications-panel::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+}
+
+.shortcuts-panel,
+.notifications-panel {
+    background-color: var(--backgroundPrimary);
+    width: 350px;
+    height: 500px;
+    position: fixed;
+    z-index: 3;
+    top: 4.4rem;
+    right: 10.2rem;
+    padding: 0;
+    overflow: auto;
+}
+
+.shortcuts-panel div:first-child {
+    padding: 1rem;
+}
+
+.shortcuts-panel .bi {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.shortcuts-panel .grid {
+    background-color: var(--backgroundPrimary);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+
+}
+
+.shortcuts-panel .grid div {
+    background-color: var(--backgroundPrimary);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px var(--borderColor) solid;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    transition: var(--transition);
+}
+
+.shortcuts-panel .grid div:nth-of-type(odd) {
+    border-right-width: 1px;
+
+}
+
+.shortcuts-panel .grid div:hover {
+    background-color: var(--backgroundDark);
+    cursor: pointer;
+
+}
+
+.shortcuts-panel .grid div button {
+    background-color: var(--backgroundPrimary);
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.8;
+}
+
+.shortcuts-panel .grid div h6 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.shortcuts-panel .grid div .text-muted {
+    font-size: 0.7rem;
+}
+
+.shortcuts-panel .grid div button .bi {
+    font-size: 2rem;
+}
+
+/* notification panel */
+.notifications-panel {
+    padding: 1px 10px;
+    right: 7.2rem;
+    overflow: scroll;
+}
+
+.notifications-panel div div {
+    background-color: transparent;
+    min-height: 4rem;
+    border-bottom: 1px var(--borderColor) solid;
+    transition: var(--transition);
+}
+
+.notifications-panel div div button {
+    background-color: var(--btnBackground);
+}
+
+.notifications-panel .row:first-child:hover {
+    background-color: var(--btnBackground);
+    cursor: pointer;
+}
+
+.notifications-panel .row:hover {
+    background-color: var(--backgroundDark);
+    cursor: pointer;
+}
+
+.notifications-panel .row:first-child {
+    padding: 10px;
+    cursor: text;
+
+}
+
+.notifications-panel .row:first-child .bi {
+    cursor: pointer;
+
+}
+
+.notifications-panel div:first-child h5 {
+    flex: 10;
+}
+
+.notifications-panel div div:nth-child(2) {
+    flex: 7;
+}
+
+.notifications-panel div .notification-profile button {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 10px;
+}
+
+.notifications-panel div div:nth-child(2) h6 {
+
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.notifications-panel div div:nth-child(2) .text-muted {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+.notifications-panel div div:nth-child(2) .very-small {
+    font-size: 0.6rem;
+    color: var(--lightBlue);
+    margin-top: 0;
+}
+
+.notifications-panel div .notification-status {
+    flex-direction: column;
+}
+
+.notifications-panel div .notification-status span {
+    background-color: var(--lightBlue);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.notifications-panel div .notification-status .bi {
+    font-size: 1.2rem;
+    display: none;
+}
+
+/* Profile Panel */
+.profile-panel {
+    background-color: var(--backgroundPrimary);
+    width: 230px;
+    position: fixed;
+    z-index: 3;
+    top: 4.6rem;
+    right: 4rem;
+}
+
+.profile-panel .row:first-child {
+    background-color: transparent;
+    min-height: 4rem;
+    border-bottom: 1px var(--borderColor) solid;
+    transition: var(--transition);
+    padding: 10px;
+}
+
+.profile-panel .row:first-child div:first-child {
+    max-width: fit-content;
+    padding: 0 6px 0 0;
+}
+
+.profile-panel .row {
+    background-color: transparent;
+    min-height: fit-content;
+    transition: var(--transition);
+    padding: 6px;
+}
+
+.profile-panel .row:hover {
+    background-color: var(--backgroundDark);
+    cursor: pointer;
+}
+
+.profile-panel .row div:first-child {
+    max-width: fit-content;
+    padding: 0 10px 0 5px;
+}
+
+.profile-panel .row div button {
+    background-color: transparent;
+}
+
+
+.shortcuts-panel,
+.notifications-panel,
+.profile-panel {
+
+    display: none;
+}
+
+/* End of panels */
+
+/* Media queries */
+
+@media all {
+    header form .search {
+        display: inline;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    header form .bi-list {
+        display: inline;
+    }
+
+}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 768px) {
+    header form .search {
+        display: none;
+    }
+
+    header form .bi-list {
+        display: inline;
+    }
+
+    .shortcuts-panel,
+    .notifications-panel {
+        width: 80%;
+        right: 2rem;
+    }
+
+    .profile-panel {
+        right: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+
+    header form .bi-list {
+        display: inline;
+    }
+
+    header form .search {
+        display: none;
+    }
+
+    .shortcuts-panel,
+    .notifications-panel {
+        width: 90%;
+        right: 1rem;
+    }
+
+    .profile-panel {
+        right: 1rem;
+    }
+
+}

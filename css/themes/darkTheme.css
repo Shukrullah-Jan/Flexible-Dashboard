@@ -1,0 +1,14 @@
+:root {
+    --backgroundPrimary: rgb(37, 37, 37);
+    --backgroundDark: rgb(29, 29, 29);
+    --btnBackground: rgb(24, 24, 24);
+    --borderColor: rgb(27, 27, 27);
+    --colorPrimary: rgb(245, 124, 77);
+    --textColor: rgb(233, 233, 233);
+    --h5Color: rgb(204, 192, 192);
+    --lightBlue: rgb(150, 129, 241);
+    --darkBlue: rgb(2, 83, 206);
+    --borderColor: rgb(124, 124, 124);
+    --caretColor: rgb(228, 228, 228);
+    --transition: all 300ms ease-in-out;
+}

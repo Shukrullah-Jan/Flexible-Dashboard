@@ -1,0 +1,109 @@
+
+@import "header.css";
+@import "main_container.css";
+@import "offcanvas.css";
+@import "footer.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: var(--textColor);
+
+}
+
+
+div button.buy-now {
+  background-color: var(--colorPrimary);
+  position: fixed;
+  z-index: 20;
+  bottom: 4rem;
+  right: 2rem;
+  font-weight: 500;
+  width: 7.5rem;
+  padding: 8px 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 20px 1px var(--colorPrimary);
+  transition: all var(--transition);
+
+}
+
+div button.buy-now:hover {
+  background-color: var(--colorPrimary);
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1rem;
+  color: var(--h5Color);
+}
+
+h6 {
+  font-size: 0.9rem;
+  color: var(--textColor);
+}
+
+small {
+  font-weight: 500;
+}
+
+.smaller {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.very-small {
+  font-size: 0.5rem;
+  color: var(--lightBlue);
+  margin-top: 0;
+}
+
+
+.dropdown-menu {
+
+  background-color: var(--backgroundDark);
+
+}
+
+.dropdown-menu li a:hover {
+
+  background-color: var(--backgroundPrimary);
+  color: var(--textColor);
+}
+
+.dropdown-menu li a {
+
+  color: var(--textColor);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 14px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dadada;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(71, 71, 71);
+  height: 25vh;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(58, 58, 58);
+}
